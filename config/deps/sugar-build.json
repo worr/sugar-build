@@ -40,6 +40,11 @@
         "name": "pylint"
     }, 
     {
+        "check": "pyflakes",
+        "checker": "binary",
+        "name": "pyflakes"
+    },
+    {
         "check": "scp", 
         "checker": "binary", 
         "name": "scp"

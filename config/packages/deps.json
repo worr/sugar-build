@@ -802,6 +802,17 @@
             "python-cairo-dev"
         ]
     }, 
+    "pyflakes": {
+        "debian": [
+            "pyflakes"
+        ], 
+        "fedora": [
+            "pyflakes"
+        ], 
+        "ubuntu": [
+            "pyflakes"
+        ]
+    }, 
     "pygtk-2.0": {
         "debian": [
             "python-gtk2-dev"
