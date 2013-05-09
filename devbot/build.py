@@ -32,6 +32,7 @@ def pull_one(module_name):
 
 def pull(revisions={}, lazy=False):
     to_pull = []
+
     for module in config.load_modules():
         git_module = git.get_module(module)
         if not lazy or not os.path.exists(git_module.local):

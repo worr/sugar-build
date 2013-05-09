@@ -24,8 +24,8 @@ class Module:
         if path is None or name is None or remote is None:
             raise RuntimeError("path, name and remote are required")
 
-        self.remote = remote
         self.local = os.path.join(path, name)
+        self.remote = remote
         self.tag = tag
 
         self._path = path
@@ -46,12 +46,11 @@ class Module:
         else:
             command.run(["git", "checkout", self._branch])
 
+    @_chdir
     def update(self, revision=None):
         if not os.path.exists(os.path.join(self.local, ".git")):
             self._clone()
             return
-
-        os.chdir(self.local)
 
         if revision is None:
             if self.tag and self._head_has_tag(self.tag):
@@ -124,7 +123,13 @@ class Module:
 
 
 def get_module(module):
-    return Module(path=config.get_source_dir(),
+    path = ""
+    if module.path is not None:
+        path = module.path
+    else:
+        path = config.get_source_dir()
+
+    return Module(path=path,
                   name=module.name,
                   remote=module.repo,
                   branch=module.branch,
