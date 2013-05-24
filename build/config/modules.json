@@ -105,18 +105,19 @@
         "tag": "METACITY_2_34_13"
     },
     {
+        "if": "distro != 'fedora-19'",
         "name": "libsoup",
         "repo": "git://git.gnome.org/libsoup",
         "tag": "2.42.1"
     },
     {
-        "if": "gnome_version == '3.4'",
+        "if": "gnome_version == '3.4' or distro != 'fedora-19'",
         "name": "libsecret",
         "repo": "git://git.gnome.org/libsecret",
         "tag": "0.15"
     },
     {
-        "if": "gnome_version < '3.6'",
+        "if": "gnome_version < '3.6' or distro != 'fedora-19'",
         "name": "harfbuzz",
         "repo": "git://anongit.freedesktop.org/harfbuzz",
         "tag": "0.9.16"
